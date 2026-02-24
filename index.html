@@ -1,161 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <header>
-
-    </header>
-    <ul id="list">
-        <li class="li">Lorem ipsum dolor sit.</li>
-        <li class="li">Lorem ipsum dolor sit.</li>
-        <li class="li">Lorem ipsum dolor sit</li>
-        <li class="li">Lorem ipsum dolor sit</li>
-        <li class="li">Lorem ipsum dolor sit</li>
-    </ul>
-    <div id="button">
-        <button class="button"></button>
-    </div>
-    
-
-    <script>
-        const list = document.querySelectorAll("#list li");
-        const button = document.querySelector('#button .button');
-       
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="multiple-new-elements">
+      <div class="cards">
         
-            button.addEventListener("click", () => {
-                if(button.style.background === "green") {
-                    button.style.background = "";
-                } else {
-                    button.style.background = "green";
-                }
-            })
+      </div>
+      <div class="cards">
 
-            // button.addEventListener("click", () => { 
-            //     if (button.style.background === "green") {
-            //         button.style.background = ""; 
-            //     } else { 
-            //         button.style.background = "green"; 
-            //     } 
-            // });
-    </script>
+      </div>
+      <div class="cards">
 
-    <input id="text" type="text">
-    <p id="count">Characters: 0</p>
-
-    <script>
-        const text = document.getElementById("text");
-        const count = document.getElementById("count");
-        text.addEventListener("input", () => {
-            const length = text.value.length;
-            count.textContent = "Characters " + length; 
-        })
-    </script>
-
-
-    <div class="container">
-        <div class="columns">
-
-            <div class="column" tabindex="0" data-user="1" role="button">
-                <h1>Workplace Productivity</h1>
-                <p class="sub-heading">
-                    In recent years, businesses of all sizes have begun to rethink how they define productivity and success in the workplace. Rather than measuring performance solely by hours logged, many organizations are focusing on outcomes, collaboration, and employee well-being. Advances in technology have made remote and hybrid models more practical, allowing teams to stay connected across time zones while maintaining flexibility in their daily routines. Leaders are discovering that trust, clear communication, and shared goals often drive stronger results than rigid oversight. As workplace expectations continue to evolve, companies that adapt thoughtfully are finding new ways to foster innovation, resilience, and long-term growth.
-
-                </p>
-            </div>
-
-            <div class="column" tabindex="0" data-user="2" role="button">    
-                <h1>Campus Minecraft</h1>
-                <p class="sub-heading">
-                    Students from Boston University to UCLA, from South Louisiana Community College to Northwestern University, have recently created or resurrected Minecraft servers and shared their creations on Discord chats, in Facebook meme groups, and on Reddit threads. The boom of college Minecraft servers has begun. These servers have the express purpose of bringing students together and building, oftentimes focused on recreating their college campuses. Searches for Minecraft server hosting have peaked to unprecedented levels in the last few weeks, and thousands of students are discussing college servers.
-
-                </p>
-           </div>
-           
-            <div class="column" tabindex="0" data-user="3" role="button">    
-                <h1>Urban Planning</h1> 
-                <p class="sub-heading">
-                Cities around the world are rethinking how public spaces function in daily life. Urban planners are increasingly prioritizing walkability, green space, and mixed-use development to create neighborhoods that feel both vibrant and practical. Small design decisions — from wider sidewalks to accessible transit hubs — can significantly influence how people connect with their communities. As populations grow and lifestyles evolve, thoughtful planning continues to shape the way modern cities live and breathe.
-
-                </p>          
-            </div> 
-
-        </div>
-
-        <section id="posts-container"></section>
+      </div>
     </div>
-
-    <script>
-        // Create variables for the container and columns
-        // Define
-        const container = document.querySelector('.flex-columns');
-        const columns = document.querySelectorAll('.column');
-        const apiCards = document.querySelector(".cards-api");
-        const apiURL = "https://jsonplaceholder.typicode.com/posts";
-
-        // Loop through columns
-        columns.forEach(column => {
-            column.addEventListener("click", () => {
-                columns.forEach(col => col.classList.remove("active"))
-                    column.classList.add("active");
-                })
-
-            }) 
-
-         // fetch and show api content
-        const postsContainer = document.getElementById('posts-container');
-
-        fetch(apiURL)
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(post => {
-                    const card = document.createElement('div');
-                    card.classList.add('post-card');
-
-                    const title = document.createElement('h2');
-                    title.textContent = post.title;
-
-                    const body = document.createElement('p');
-                    body.textContent = post.body;
-
-                    card.appendChild(title);
-                    card.appendChild(body);
-
-                    postsContainer.appendChild(card);
-
-                    // console.log(post.title);
-                    console.log(card)
-                })
-            })
-
-
-            // Make accessable for people that need to tab through the columns
-            columns.forEach(column => {
-  // Keyboard activation
-  column.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault(); // prevents page scroll on Space
-
-      // Remove active from all
-      columns.forEach(col => col.classList.remove("active"));
-
-      // Add active to the focused one
-      column.classList.add("active");
-
-      // Update aria-pressed for screen readers
-      columns.forEach(col => col.removeAttribute("aria-pressed"));
-      column.setAttribute("aria-pressed", "true");
-    }
-  });
-});
-
-
-    </script>
-    
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
