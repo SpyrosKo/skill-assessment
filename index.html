@@ -7,17 +7,45 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="multiple-new-elements">
-      <div class="cards">
-        
-      </div>
-      <div class="cards">
+    <main id="main">
+      <input class="input" />
+      <p class="output"></p>
+      <button class="submit"></button>
 
-      </div>
-      <div class="cards">
+      <script>
+        const buttonEl = document.querySelector(".submit");
+        const paragraphEl = document.querySelector(".output");
+        const input = document.querySelector(".input");
+          
+        buttonEl.addEventListener("click", () => {
+          const value = input.value;
+          // const result = value
+          const result = paragraphEl.textContent = value;
 
-      </div>
-    </div>
+          console.log(value);
+          console.log(result)
+
+        });         
+      </script>
+
+      <!-- <p class="change-text">Change text when button is pressed</p>
+      <button id="change-text-button">Change text</button>
+
+      <script>
+        const changedText = document.querySelector(".change-text");
+        const textButton = document.querySelector("#change-text-button");
+
+        textButton.addEventListener("click", () => {
+          changedText.textContent = "I've been changed, and I am Text.";
+        });
+      </script> -->
+
+      <!-- When I click a card, it becomes active
+      and all other cards lose active state -->
+
+      <div class="card-container"></div>
+    </main>
+
     <script src="app.js"></script>
   </body>
 </html>

@@ -1,8 +1,0 @@
-const cards = document.querySelectorAll(".cards");
-
-cards.forEach(card => {
-        card.addEventListener("click", () => {
-            card.classList.toggle("active");
-        })
-})
-

@@ -1,9 +1,3 @@
-#multiple-new-elements .active {
-    background-color:yellowgreen;
-}
-
-.cards {
-    width: 200px;
-    height: 300px;
-    border: 1px solid black;
+button.submit {
+    padding: 1em 2em;
 }
