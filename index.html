@@ -7,45 +7,41 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main id="main">
-      <input class="input" />
-      <p class="output"></p>
-      <button class="submit"></button>
 
-      <script>
-        const buttonEl = document.querySelector(".submit");
-        const paragraphEl = document.querySelector(".output");
-        const input = document.querySelector(".input");
-          
-        buttonEl.addEventListener("click", () => {
-          const value = input.value;
-          // const result = value
-          const result = paragraphEl.textContent = value;
+    <p class="demo">Hello world</p>
 
-          console.log(value);
-          console.log(result)
 
-        });         
-      </script>
+    <script>
+      const demo = document.querySelector(".demo");
+      demo.textContent = "demo 1st update";
+      console.log(demo.firstChild);
+      console.log(demo.textContent);
 
-      <!-- <p class="change-text">Change text when button is pressed</p>
-      <button id="change-text-button">Change text</button>
+      const d = document.createTextNode("ass");
+      demo.appendChild(d)
+      console.log(demo);
+      console.log(demo.childNodes)
+      console.log(demo.childNodes[0])
+      console.log(demo.childNodes[1].textContent + demo.childNodes[0].textContent);
+      console.log(demo.removeChild(demo.childNodes[1]));
+      console.log(demo.removeChild(demo.childNodes[0]));
+      console.log(demo.childNodes);
+      demo.textContent = "";
+      console.log(demo.childNodes);
+      demo.textContent = "ABC";
+      demo.childNodes;
+      demo.removeChild(demo.childNodes[0]);
 
-      <script>
-        const changedText = document.querySelector(".change-text");
-        const textButton = document.querySelector("#change-text-button");
 
-        textButton.addEventListener("click", () => {
-          changedText.textContent = "I've been changed, and I am Text.";
-        });
-      </script> -->
+      const span = document.createElement("span");
+      span.textContent = "Anything I want";
+      demo.appendChild(span);
+      console.log(span.childNodes);
+      console.log(demo)
+      demo.appendChild("a")
 
-      <!-- When I click a card, it becomes active
-      and all other cards lose active state -->
-
-      <div class="card-container"></div>
-    </main>
-
+    </script>
+    
     <script src="app.js"></script>
   </body>
 </html>
