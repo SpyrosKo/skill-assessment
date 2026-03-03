@@ -1,0 +1,11 @@
+.card {
+    height: 200px;
+    width: 120px;
+    border: 1px dotted darkblue;
+}
+
+.grandparent {
+    width: 300px;
+    height: 200px;
+    background-color: aliceblue;
+}

@@ -8,70 +8,38 @@
   </head>
   <body>
 
-    <p class="demo">Hello world</p>
-    <button></button>
+    <div class="grandparent">
+      <div class="card">
+        <button class="btn">Favorite</button>
+      </div>
+    </div>
+        
+
 
     <script>
+      const card = document.querySelector(".card");
+      const btn = document.querySelector(".btn");
+      const pappy = document.querySelector(".grandparent")
+
+      pappy.addEventListener("click", (e) => {
+        console.log("pappy clicked")
+        e.stopPropagation();
+      })
+
+      card.addEventListener("click", (e) => {
+        console.log("card clicked")
+        e.stopPropagation()
+      })
+
+      btn.addEventListener("click", (e) => {
+        console.log("favorite clicked")
+        e.stopPropagation();
+      })
    
 
-      const btn = document.querySelector("button")
-      btn.addEventListener("click", () => {
-        const body = document.querySelector("body")
-      const demo = document.querySelector(".demo");
-
-      demo.textContent = "demo 1st update";
-
-      const span = document.createElement("span");
-      span.textContent = "Anything I want";
-      demo.appendChild(span);
-      span.textContent = "Another. ";
-      demo.appendChild(span);
-
       
-      // Adding second element inside '.demo'
-      const strong = document.createElement("strong");
-      strong.textContent = "I am strong.";
-      demo.appendChild(strong);
 
-      const newTextNode = document.createTextNode("Forever young!");
-      demo.appendChild(newTextNode);
 
-      const newElement = document.createElement("em");
-      newElement.textContent = "I'm an inbetweener.";
-      demo.insertBefore(newElement, newTextNode)
-      demo.insertBefore(newElement, span)
-
-      // Clone a new node object
-      // Choose either .cloneNode(true) = deep clone
-      // or cloneNode(false) = shallow clone
-      // Once cloned, choose the element and inject it anywhere I want in the tree
-
-      const cloned = strong.cloneNode(true);
-      demo.append(cloned)
-      body.appendChild(cloned)
-      body.insertBefore(cloned, demo)
-
-      // Build an element div
-      const div = document.createElement("div")
-      body.appendChild(div)
-
-      const h1 = document.createElement("h1")
-      h1.textContent = "I'm a mothafucking Header";
-      div.appendChild(h1);
-
-      const pEl = document.createElement("p")
-      pEl.textContent = "I'm a lowly P."
-      div.appendChild(pEl)
-
-      const h2 = document.createElement("h2")
-      h2.textContent = "I'm a lowly P."
-      div.appendChild(h2)
-
-      const clonedDiv =  div.cloneNode(true);
-      body.appendChild(clonedDiv)
-      body.insertBefore(strong, demo)
-      })
-      
     </script>
     
     <script src="app.js"></script>
