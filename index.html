@@ -8,37 +8,45 @@
   </head>
   <body>
 
-    <div class="grandparent">
-      <div class="card">
-        <button class="btn">Favorite</button>
-      </div>
-    </div>
-        
-
-
     <script>
-      const card = document.querySelector(".card");
-      const btn = document.querySelector(".btn");
-      const pappy = document.querySelector(".grandparent")
 
-      pappy.addEventListener("click", (e) => {
-        console.log("pappy clicked")
+      const body = document.querySelector("body");
+
+      const div = document.createElement("div");
+      body.appendChild(div);
+      div.classList.add("card");
+
+      const btn = document.createElement("button");      
+      div.appendChild(btn);
+      btn.textContent = "button";
+      btn.style.color = "white";
+      btn.style.backgroundColor = "darkGrey";
+      div.style.height = "100px";
+      div.style.width = "100px";
+      div.style.border = "1px solid black";
+
+      const parent = document.createElement("div");
+      parent.classList.add("parent");
+      body.appendChild(parent)
+      parent.appendChild(div)
+
+      const parentBtn = document.createElement("button")
+      parentBtn.textContent = "parent button"
+      parent.appendChild(parentBtn);
+
+      div.addEventListener("click", (e) => {
+        console.log("card clicked");
         e.stopPropagation();
-      })
-
-      card.addEventListener("click", (e) => {
-        console.log("card clicked")
-        e.stopPropagation()
       })
 
       btn.addEventListener("click", (e) => {
-        console.log("favorite clicked")
+        console.log("button clicked");
         e.stopPropagation();
       })
-   
 
-      
-
+      parent.addEventListener("click", () => {
+        console.log("parent clicked")
+      })
 
     </script>
     
