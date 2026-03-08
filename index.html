@@ -10,27 +10,39 @@
     <script>
       const body = document.querySelector("body");
 
-      const list = ["one", "two", "three"];
-
-      const button = document.createElement("button");
-      button.textContent = "Menu";
-      body.appendChild(button);
-
-      const container = document.createElement("ul");
-      container.classList.add("classlist");
+      // array of 5 movies
+      const movies = ["LOTR", "Legend", "Alien", "Dune", "Event Horizon"];
+      // create container to hold something?
+      const container = document.createElement("div");
       body.appendChild(container);
 
-      list.forEach((item) => {
-        const div = document.createElement("li");
-        div.textContent = item;
-        container.appendChild(div);
-      });
+      // create a button event handler to create filtered list
+      const button = document.createElement("button");
+      button.textContent = "Filter long titles";
+      body.appendChild(button);
 
-      button.addEventListener("click", () => {
-        container.classList.toggle("expanded");
+      // Click event on button
+      // filter through the movies to find movies with more that 8 letters.
+      button.addEventListener("click", (e) => {
+        container.innerHTML = "";
+
+        // filter movies
+        const filtered = movies.filter((movie) => {
+          return movie.length > 8;
+        });
+
+        // Walk through filtered movies
+        filtered.forEach(filter => { 
+        const walking = document.createElement("div");
+        walking.textContent = filter;
+
+        container.appendChild(walking);
+        })
       });
     </script>
 
     <script src="app.js"></script>
   </body>
 </html>
+
+<!-- You're building a page that displays a list of five movie titles. There's a button that filters the list to show only movies that have more than 8 letters in the title. Clicking again shows all of them again. -->
