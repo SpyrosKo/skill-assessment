@@ -7,49 +7,30 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
     <script>
-
       const body = document.querySelector("body");
 
-      const div = document.createElement("div");
-      body.appendChild(div);
-      div.classList.add("card");
+      const list = ["one", "two", "three"];
 
-      const btn = document.createElement("button");      
-      div.appendChild(btn);
-      btn.textContent = "button";
-      btn.style.color = "white";
-      btn.style.backgroundColor = "darkGrey";
-      div.style.height = "100px";
-      div.style.width = "100px";
-      div.style.border = "1px solid black";
+      const button = document.createElement("button");
+      button.textContent = "Menu";
+      body.appendChild(button);
 
-      const parent = document.createElement("div");
-      parent.classList.add("parent");
-      body.appendChild(parent)
-      parent.appendChild(div)
+      const container = document.createElement("ul");
+      container.classList.add("classlist");
+      body.appendChild(container);
 
-      const parentBtn = document.createElement("button")
-      parentBtn.textContent = "parent button"
-      parent.appendChild(parentBtn);
+      list.forEach((item) => {
+        const div = document.createElement("li");
+        div.textContent = item;
+        container.appendChild(div);
+      });
 
-      div.addEventListener("click", (e) => {
-        console.log("card clicked");
-        e.stopPropagation();
-      })
-
-      btn.addEventListener("click", (e) => {
-        console.log("button clicked");
-        e.stopPropagation();
-      })
-
-      parent.addEventListener("click", () => {
-        console.log("parent clicked")
-      })
-
+      button.addEventListener("click", () => {
+        container.classList.toggle("expanded");
+      });
     </script>
-    
+
     <script src="app.js"></script>
   </body>
 </html>
