@@ -3,46 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>The javascript learning page</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <script>
-      const body = document.querySelector("body");
+      // build the body so i can attach other stuff
+      const body = document.body;
+      console.log(body);
 
-      // array of 5 movies
-      const movies = ["LOTR", "Legend", "Alien", "Dune", "Event Horizon"];
-      // create container to hold something?
-      const container = document.createElement("div");
-      body.appendChild(container);
-
-      // create a button event handler to create filtered list
+      // Create button for user interaction
       const button = document.createElement("button");
-      button.textContent = "Filter long titles";
+      button.textContent = "Menu";
       body.appendChild(button);
 
-      // Click event on button
-      // filter through the movies to find movies with more that 8 letters.
-      button.addEventListener("click", (e) => {
-        container.innerHTML = "";
+      const menuContainer = document.createElement("ul");
+      body.appendChild(menuContainer);
+      menuContainer.classList.add("menu-container");
 
-        // filter movies
-        const filtered = movies.filter((movie) => {
-          return movie.length > 8;
-        });
+      // Create what will be cycled through
+      const menuItems = ["One", "Two", "Three"];
 
-        // Walk through filtered movies
-        filtered.forEach(filter => { 
-        const walking = document.createElement("div");
-        walking.textContent = filter;
-
-        container.appendChild(walking);
-        })
+      menuItems.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        menuContainer.appendChild(li);
       });
+
+      // let expanded = false;
+      // if not using .toggle(), but instead using an if/else, .add()/.remove()
+
+      button.addEventListener("click", (e) => {
+        menuContainer.classList.toggle("expanded");
+      });
+
+      // button.addEventListener("click", () => {
+      //   expanded = !expanded;
+
+      //   if (expanded) {
+      //     menuContainer.classList.add("expanded");
+      //   } else {
+      //     menuContainer.classList.remove("expanded");
+      //   }
+      // });
+
+      // expanded = !expanded;
+      // if not using .toggle(), but instead using an if/else, .add()/.remove()
     </script>
 
     <script src="app.js"></script>
   </body>
 </html>
-
-<!-- You're building a page that displays a list of five movie titles. There's a button that filters the list to show only movies that have more than 8 letters in the title. Clicking again shows all of them again. -->

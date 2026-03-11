@@ -1,0 +1,18 @@
+button {
+  padding: 2px;
+  background-color: aliceblue;
+  color: indigo;
+  transition: 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: indigo;
+  color: aliceblue;
+  /* margin-left: 2em; */
+}
+.menu-container {
+  display: none;
+}
+.menu-container.expanded {
+  display: block;
+}
