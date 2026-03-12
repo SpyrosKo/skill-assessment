@@ -17,8 +17,12 @@
       button.textContent = "Menu";
       body.appendChild(button);
 
+      const cardContainer = document.createElement("div")
+      cardContainer.classList.add("card-container")
+      body.appendChild(cardContainer)
+
       const menuContainer = document.createElement("ul");
-      body.appendChild(menuContainer);
+      cardContainer.appendChild(menuContainer);
       menuContainer.classList.add("menu-container");
 
       // Create what will be cycled through
@@ -30,12 +34,18 @@
         menuContainer.appendChild(li);
       });
 
-      // let expanded = false;
+      let expanded = false;
       // if not using .toggle(), but instead using an if/else, .add()/.remove()
 
       button.addEventListener("click", (e) => {
         menuContainer.classList.toggle("expanded");
       });
+
+      // body.addEventListener("click", (e) => {
+      //   if(menuContainer = menuContainer.classList.contains("expanded")) {
+      //     menuContainer.classList.remove("expanded");
+      //   }
+      // })
 
       // button.addEventListener("click", () => {
       //   expanded = !expanded;
@@ -47,7 +57,7 @@
       //   }
       // });
 
-      // expanded = !expanded;
+      expanded = !expanded;
       // if not using .toggle(), but instead using an if/else, .add()/.remove()
     </script>
 
