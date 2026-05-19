@@ -10,11 +10,6 @@ button:hover {
   color: aliceblue;
   /* margin-left: 2em; */
 }
-
-.card-container {
-    height: 100vh;
-    width: 100vw;
-}
 .menu-container {
   display: none;
 }

@@ -8,57 +8,43 @@
   </head>
   <body>
     <script>
-      // build the body so i can attach other stuff
-      const body = document.body;
-      console.log(body);
+      const body = document.querySelector("body");
 
-      // Create button for user interaction
-      const button = document.createElement("button");
-      button.textContent = "Menu";
-      body.appendChild(button);
+      let btn = document.createElement("button");
+      btn.textContent = "Menu";
+      body.appendChild(btn);
 
-      const cardContainer = document.createElement("div")
-      cardContainer.classList.add("card-container")
-      body.appendChild(cardContainer)
+      let menuContainter = document.createElement("ul");
+      menuContainter.classList.add("menu-container");
+      body.appendChild(menuContainter);
 
-      const menuContainer = document.createElement("ul");
-      cardContainer.appendChild(menuContainer);
-      menuContainer.classList.add("menu-container");
+      let menuLinks = ["one", "two", "three"];
 
-      // Create what will be cycled through
-      const menuItems = ["One", "Two", "Three"];
-
-      menuItems.forEach((item) => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        menuContainer.appendChild(li);
+      menuLinks.forEach((link) => {
+        let li = document.createElement("li");
+        li.textContent = link;
+        menuContainter.appendChild(li);
       });
 
-      let expanded = false;
-      // if not using .toggle(), but instead using an if/else, .add()/.remove()
-
-      button.addEventListener("click", (e) => {
-        menuContainer.classList.toggle("expanded");
+      btn.addEventListener("click", (e) => {
+        menuContainter.classList.toggle("expanded");
       });
 
-      // body.addEventListener("click", (e) => {
-      //   if(menuContainer = menuContainer.classList.contains("expanded")) {
-      //     menuContainer.classList.remove("expanded");
-      //   }
-      // })
+      let click;
 
-      // button.addEventListener("click", () => {
-      //   expanded = !expanded;
+      click.addEventListener("click",(e) => {
+        let clickOutsideMenuLink; // = 
+      })
 
-      //   if (expanded) {
-      //     menuContainer.classList.add("expanded");
-      //   } else {
-      //     menuContainer.classList.remove("expanded");
-      //   }
-      // });
+      /*
+     
+      let clickOutside = 
+      click => click.addEventListener
+      outside menu =>
+      menu closes
+      let clickMenuLink = 
 
-      expanded = !expanded;
-      // if not using .toggle(), but instead using an if/else, .add()/.remove()
+      */
     </script>
 
     <script src="app.js"></script>
